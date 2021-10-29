@@ -1,0 +1,1 @@
+export const baseUrl2="https://www.omdbapi.com/?apikey=5fcb333a&s=${stext}&page=2"
