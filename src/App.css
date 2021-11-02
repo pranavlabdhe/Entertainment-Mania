@@ -56,12 +56,13 @@
 
 .movie_cards{
   display: grid;
-  grid-template-columns: 500px 500px 1fr;
+  grid-template-columns: 2fr 2fr 2fr;
   align-items: center;
   gap:15px 10px;
+
 }
 .movie_card_img{
-  height: 500px;
+  height: 800px;
 
 }
 @media only screen and (max-width: 600px) {

@@ -3,12 +3,13 @@ import {CardGroup,Card,CardImg,CardTitle,CardText,CardBody,CardSubtitle,Button,C
 class Movies extends Component{
         constructor(props){
             super(props);
-        
+           
         }
         render(){
          return(
-            <>
-            <div className="movie_cards">
+            <>  
+            
+        <div className="movie_cards">
   {this.props.movies.map((p)=>(
   <CardDeck style={{display: 'flex', flexDirection: 'row',justifyContent: 'center' }}>
   <Card style={{flex: 1}}>
@@ -20,7 +21,7 @@ class Movies extends Component{
     />
     <CardBody>
       <CardTitle tag="h5">
-        {p.Title}
+        {p.Title} 
       </CardTitle>
       <CardSubtitle
         className="mb-2 text-muted"
@@ -28,14 +29,15 @@ class Movies extends Component{
       >
         <h3>{p.Year}</h3>
       </CardSubtitle>
-      <Button>
+      <Button onClick={() => {this.props.showDetail((p.imdbID))}} key={p.imdbID} >
         Button
       </Button>
     </CardBody>
     </Card>
     </CardDeck>
-    ))}               
-          </div>
+ 
+    ))}      
+    </div>         
             </>
          )   
         }
