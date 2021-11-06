@@ -2,6 +2,7 @@ import {React,Component} from "react";
 import './App.css';
 import MainComponent from "./MainComponent";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter} from 'react-router-dom'
 
 class App extends Component {
    constructor(props){
@@ -13,6 +14,7 @@ class App extends Component {
        <div>
         <MainComponent/>
        </div>
+
      )
    }
   

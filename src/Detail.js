@@ -6,13 +6,14 @@ import Dialog from "@material-ui/core/Dialog";
 import Chip from '@material-ui/core/Chip';
 import Fab from "@material-ui/core/Fab";
 import YouTubeIcon from '@material-ui/icons/YouTube';
- import HighQualityIcon from '@material-ui/icons/HighQuality';
- import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import HighQualityIcon from '@material-ui/icons/HighQuality';
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import IconButton from "@material-ui/core/IconButton"
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+
 // import ScriptTag from 'react-script-tag';
 
 const Detail = (props)=>{
@@ -89,8 +90,7 @@ const Detail = (props)=>{
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         // TransitionComponent={Transition}
-      
-        
+  
          
       >
        
@@ -114,19 +114,17 @@ const Detail = (props)=>{
         </IconButton>
 
         <Fab color="primary" style={{
-              background: "#b71c1c"}} fontSize="large" onClick={()=>{  (mtype ==="series") ? handleClickOpenSeries() : handleClickOpenFs()}} className="playBtn">
+              background: "#000000" , marginLeft:"2em", marginTop:"5em"}} fontSize="large" onClick={()=>{  (mtype ==="series") ? handleClickOpenSeries() : handleClickOpenFs()}} >
         <PlayArrowIcon />
       </Fab>
       <div className="movieContent">
-      <h4>{title}</h4>
+      <h4 class="movie_title_detail">{title}</h4>
       
-      <hr style={{background:"white"}}/>
-   
-      <span style={{float:"right"}}>{year}</span>
-      <span style={{float:"left"}}>{genre}</span>
+      <hr style={{background:"black" }}/>
+      <span style={{float:"left", marginLeft:"2em"}}>{genre} {''} {year}</span>
        {/* <span>Type:{mtype}</span> */}
       
-      <i style={{color:"gray",float:"left",marginTop:"10px"}}>{plot}</i>
+      <h6 style={{color:"gray",float:"left", marginLeft:"2em",}}>{plot}</h6>
       
       
       
@@ -134,7 +132,7 @@ const Detail = (props)=>{
         label={imdbrate}
        
         style={{
-          background: "#ffea00",color:"black",borderRadius:"5px",marginTop:"10px",fontWeight:"bolder"}}
+          background: "#ffea00",color:"black",borderRadius:"5px",marginLeft:"2em",marginTop:"10px",fontWeight:"bolder"}}
       />
        <Chip
         label={metascore}
@@ -221,7 +219,7 @@ const Detail = (props)=>{
                  
                 }
              
-                setmovielink(event.target.value+`${props.imval}`);
+                setmovielink(event.target.value +`${props.inputVal}`);
               }
               }
          
@@ -348,12 +346,11 @@ const Detail = (props)=>{
           }}>
 
            <ArrowBackIcon fontSize="large" />
-        
+  
           </IconButton>
   
       </Dialog>
-</>
-        
+</>   
     )
 }
 export default Detail

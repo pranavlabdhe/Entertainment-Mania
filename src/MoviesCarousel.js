@@ -2,6 +2,7 @@ import {React,useState} from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
 // import { UncontrolledCarousel} from "reactstrap";
 import { imageUrl } from "./imageUrl";
+import { FadeTransform } from 'react-animation-components';
 const MovieCarousel = (props) =>{
 const [current,setCurrent] = useState(0)
 const length = props.trending.length
@@ -10,7 +11,10 @@ const nextSlide = ()=>{
     setCurrent(current === length -1 ?0:current+1)
 }
 const prevSlide = ()=>{
-    setCurrent(current===0?length-1:current-1)
+
+        {setCurrent(current===0?length-1:current-1)}
+  
+ 
 }
 // console.log(current);
 
@@ -18,11 +22,15 @@ if(!Array.isArray(props.trending)||props.trending.length <=0){
     return null;
 }
     return(
+        <FadeTransform in  transformProps={{
+            exitTransform: 'scale(0.5) translateY(-50%)'
+        }}>
         <div className="main">
         <div className="tending_text">
-        <h1 className="text-center">THIS WEEKS TRENDING</h1>
+        <h1 className="text-center">THIS WEEKS TRENDINGS</h1>
         </div>
         <div className="border_div"></div>
+        
         <div className="slider">
         <FaArrowAltCircleLeft className="left-arrow"
             onClick={prevSlide}
@@ -34,13 +42,15 @@ if(!Array.isArray(props.trending)||props.trending.length <=0){
             return(
                 <div className={index===current?'s active':'s'} key={index}>
                     {index===current && (<img src= {imageUrl + s.poster_path} alt="image" className="slider_images"/> )}
+                    
                   
                 </div>
             )
         })}
         </div>
+     
         </div>
-        
+        </FadeTransform>
     );
 }
 export default MovieCarousel;

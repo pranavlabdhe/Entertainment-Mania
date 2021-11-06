@@ -6,11 +6,12 @@ import Movies from './Movies';
 import MovieCarousel from './MoviesCarousel';
 import Snackbar from '@material-ui/core/Snackbar';
 import Details from './Detail';
+import {Switch,Route,Redirect} from 'react-router-dom'
 class MainComponent extends Component{
     constructor(props){
         super(props);
         this.state ={
-            inputVal:'harry potter',
+            inputVal:"harry potter",
             movies:[],
             trending:[],
             showHideMovieCarousel:true,
@@ -35,16 +36,15 @@ class MainComponent extends Component{
     }
     handleSubmit(event){   
         // console.log(JSON.stringify(this.state));
-        
         event.preventDefault();
-        this.setState({
-            showHideMovieCarousel:false
-        })
         if(this.state.inputVal === null){
             alert("no result found")
         }
         this.show();    
-    
+        this.setState({
+            showHideMovieCarousel:false,
+            inputVal:''
+        })
     }
     showDetail(i){
         this.setState({
@@ -77,7 +77,7 @@ class MainComponent extends Component{
         })
         console.log(data);
     }catch(err){
-      alert("Movie Not Found");
+      alert("Search not Found");
       window.location.reload("localhost:3000")
     }
     }
@@ -91,6 +91,8 @@ class MainComponent extends Component{
         console.log(trending_data);
     }
     componentDidMount(){
+        alert('Please use adBlocker for better experience');
+        window.location = 'localhost:3000';
         this.show();
         this.show2();
     }
@@ -99,7 +101,6 @@ class MainComponent extends Component{
         return (
             <>
             <HomePage />
-
            <Form onSubmit={this.handleSubmit}
             >
             <Input type="text" id="inputVal" name="inputVal" onChange={this.handleInputChange} className="text-center" />

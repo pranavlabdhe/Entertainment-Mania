@@ -1,16 +1,20 @@
 import {React,Component} from 'react'
-import { baseUrl } from './baseUrl';
+
+import {Switch,Route,Redirect} from 'react-router-dom'
+import MainComponent from './MainComponent';
+import { Link } from 'react-router-dom';
 class HomePage extends Component{
     constructor(props){
         super(props)
-        
     }
     componentDidMount(){
         // fetch(baseUrl + )
     }
     render() {
         return (
-             <h1>ENTERTAINMENT MANIA</h1>
+            <>
+        <h1>ENTERTAIMENT MANIA</h1>
+    </>
         );
     }
 }
